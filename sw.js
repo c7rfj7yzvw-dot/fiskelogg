@@ -1,5 +1,5 @@
 // Fiskelogg service worker: app-skallet caches (cache-first), data hentes nett-først med cache som reserve (frakoblet).
-const VERSJON = "20261102114138";
+const VERSJON = "20261102114335";
 const SKALL = ["./", "index.html", "manifest.webmanifest", "js/app-UFN6G6NZ.js", "js/chunk-D2ZIOSQI.js", "js/main-E2DNU4NW.js", "stil-9d2505cd.css", "ikoner/apple-touch-icon.png", "ikoner/ikon-180.png", "ikoner/ikon-192.png", "ikoner/ikon-512.png", "ikoner/ikon-maskable-512.png", "ikoner/ikon.svg", "data.json", "fartoy.json", "tillatelser.json"];
 const CACHE = "fiskelogg-" + VERSJON;
 self.addEventListener("install", (e) => {
