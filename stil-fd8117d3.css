@@ -131,3 +131,12 @@ iframe.kartflate{height:520px}
 .leaflet-bar a{background:var(--panel2);color:var(--tekst);border-bottom-color:var(--linje)}
 .leaflet-control-attribution{background:rgba(6,19,31,.8)!important;color:var(--tekst3)!important}
 .leaflet-control-attribution a{color:var(--aksent)!important}
+.redskapmerke{width:18px;height:18px;box-sizing:border-box;border-radius:5px;border:1.5px solid #04121d;color:#04121d;font:700 11px/15px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.5)}
+.redskapboks{margin:10px 0 4px;padding:10px 12px;border:1px solid var(--linje);border-radius:12px;background:var(--panel2)}
+.redskaptopp{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;margin-bottom:8px}
+.redskapfilter{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:5px 10px 5px 6px;border-radius:999px;border:1px solid var(--linje);background:transparent;color:var(--tekst);font:inherit;font-size:13px;cursor:pointer}
+.chip i{display:inline-block;width:18px;height:18px;border-radius:5px;border:1.5px solid #04121d;color:#04121d;font:700 11px/15px sans-serif;font-style:normal;text-align:center}
+.chip i.strek{background:repeating-linear-gradient(90deg,#FF4D6D 0 6px,transparent 6px 10px);border:none;height:4px;width:22px;border-radius:2px}
+.chip span{color:var(--tekst3);font-variant-numeric:tabular-nums}
+.chip.av{opacity:.45}.chip.av i{filter:grayscale(1)}

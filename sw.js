@@ -1,7 +1,7 @@
 // Fiskelogg service worker: app-skallet caches (cache-first), data hentes nett-først med cache som reserve (frakoblet).
 // Kartfliser fra Kartverket lagres i egen cache (cache-først) så kartet virker uten nett der du har vært.
-const VERSJON = "20261103051600";
-const SKALL = ["./", "index.html", "manifest.webmanifest", "js/app-SEU5NXVM.js", "js/chunk-4EMVN7TB.js", "js/chunk-EK7ODJWE.js", "js/leaflet-src-XKIGVAXB.js", "js/main-2WJKFVJB.js", "stil-e81b600a.css", "ikoner/apple-touch-icon.png", "ikoner/ikon-180.png", "ikoner/ikon-192.png", "ikoner/ikon-512.png", "ikoner/ikon-maskable-512.png", "ikoner/ikon.svg", "data.json", "fartoy.json", "tillatelser.json", "leaflet.css", "kvote/indeks.json"];
+const VERSJON = "20261103222650";
+const SKALL = ["./", "index.html", "manifest.webmanifest", "js/app-HILCZDJ3.js", "js/chunk-4EMVN7TB.js", "js/chunk-EK7ODJWE.js", "js/leaflet-src-XKIGVAXB.js", "js/main-NC6JYWWC.js", "stil-fd8117d3.css", "ikoner/apple-touch-icon.png", "ikoner/ikon-180.png", "ikoner/ikon-192.png", "ikoner/ikon-512.png", "ikoner/ikon-maskable-512.png", "ikoner/ikon.svg", "data.json", "fartoy.json", "tillatelser.json", "leaflet.css", "kvote/indeks.json"];
 const CACHE = "fiskelogg-" + VERSJON;
 const DATA = "fiskedata-v1";
 const FLISER = "kartfliser-v1";
