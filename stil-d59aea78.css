@@ -140,3 +140,11 @@ iframe.kartflate{height:520px}
 .chip i.strek{background:repeating-linear-gradient(90deg,#FF4D6D 0 6px,transparent 6px 10px);border:none;height:4px;width:22px;border-radius:2px}
 .chip span{color:var(--tekst3);font-variant-numeric:tabular-nums}
 .chip.av{opacity:.45}.chip.av i{filter:grayscale(1)}
+.oppdater{display:flex;flex-direction:column;align-items:flex-end;flex:none}
+.oppdater-knapp{display:flex;align-items:center;gap:6px;height:36px;padding:0 12px;border-radius:18px;border:1px solid var(--aksent);background:var(--panel);color:var(--tekst);font-weight:600;font-size:14px;cursor:pointer}
+.oppdater-knapp:disabled{opacity:.65;cursor:default}
+.oppdater-ikon{font-size:17px;line-height:1;display:inline-block}
+.laster-n .oppdater-ikon{animation:snurr 0.9s linear infinite}
+@keyframes snurr{to{transform:rotate(360deg)}}
+.oppdater-status{font-size:11px;color:var(--tekst3);margin-top:2px;white-space:nowrap}
+.oppdater-status.feil{color:#FF8A8A}
