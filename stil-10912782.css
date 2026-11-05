@@ -148,3 +148,44 @@ iframe.kartflate{height:520px}
 @keyframes snurr{to{transform:rotate(360deg)}}
 .oppdater-status{font-size:11px;color:var(--tekst3);margin-top:2px;white-space:nowrap}
 .oppdater-status.feil{color:#FF8A8A}
+/* vær-fanen */
+.vaer-sok{display:flex;flex-direction:column;gap:8px}
+.vaer-knapper{display:flex;flex-wrap:wrap;gap:8px}
+.vaerkart{height:46vh;min-height:300px}
+.favoritter{display:flex;flex-direction:column;gap:6px}
+.favoritter .fakta-tittel{margin-top:4px}
+.favliste{display:flex;flex-wrap:wrap;gap:8px}
+.favchip{display:inline-flex;align-items:stretch;border:1px solid var(--linje);border-radius:999px;background:var(--panel);overflow:hidden}
+.favchip.valgt{border-color:var(--aksent);box-shadow:inset 0 0 0 1px var(--aksent)}
+.favnavn{border:0;background:none;padding:9px 6px 9px 14px;cursor:pointer;font-size:14.5px;color:var(--tekst)}
+.favnavn::first-letter{color:#FFD166}
+.favendre{border:0;border-left:1px solid var(--linje);background:none;padding:0 12px;cursor:pointer;color:var(--tekst3)}
+.favrediger{display:flex;flex-wrap:wrap;gap:6px;width:100%;background:var(--panel2);border:1px solid var(--linje);border-radius:12px;padding:8px}
+.favrediger .felt{flex:1 1 100%}
+.knapp.fare{border-color:#E5484D;color:#FF8A8A}
+.forslag{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.forslag .liten{margin:0}
+.forslag .chip{padding:5px 12px}
+.knapp.stjerne{white-space:nowrap}
+.knapp.stjerne.på{border-color:#FFD166;color:#FFD166}
+.vaer-naa{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;background:var(--panel);border:1px solid var(--linje);border-radius:12px;padding:10px 14px}
+.vaer-stor{font-size:30px;line-height:1.1}
+.vaer-verktoy{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.vaertabell th{white-space:normal;line-height:1.15}
+.vaertabell th small{font-weight:400}
+.vaertabell td{padding:6px 8px;white-space:nowrap;vertical-align:middle}
+.vaertabell td.tid{font-weight:600;color:var(--tekst)}
+.vaertabell td small{color:var(--tekst3)}
+.vaertabell .sym{font-size:19px}
+.vaertabell tr.dagrad td{background:var(--panel2);color:var(--tekst2);font-weight:600;font-size:12.5px;padding:5px 8px}
+.vaertabell td.kald{color:#8FD3FF}
+.vindpil{display:inline-block;font-weight:700;color:var(--aksent);line-height:1}
+.vind-liten{background:rgba(251,191,36,.13)}
+.vind-stiv{background:rgba(245,140,36,.22)}
+.vind-sterk{background:rgba(229,72,77,.25)}
+.vind-storm{background:rgba(229,72,77,.45)}
+.melding.farevarsel{margin:0}
+.melding.farevarsel.yellow{border-color:#F5C524;background:rgba(251,191,36,.10)}
+.melding.farevarsel.orange{border-color:#F58C24;background:rgba(245,140,36,.12)}
+.melding.farevarsel.red{border-color:#E5484D;background:rgba(229,72,77,.12)}
+.melding.farevarsel div{margin-top:4px}
