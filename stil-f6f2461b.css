@@ -256,3 +256,30 @@ iframe.kartflate{height:520px}
 .tur-notat{font-size:13.5px;color:var(--tekst2);white-space:pre-wrap;border-left:3px solid var(--linje);padding-left:8px}
 .tur-knapper{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
 .svak{color:var(--tekst3)}
+/* startside */
+.hjemknapp{position:relative;flex:none;padding:0;border:0;background:none;cursor:pointer;border-radius:10px;line-height:0}
+.hjemknapp:focus-visible{outline:2px solid var(--aksent);outline-offset:2px}
+.hjemhus{position:absolute;right:-5px;bottom:-4px;font-size:12px;line-height:1;background:var(--panel2);border:1px solid var(--linje);border-radius:7px;padding:1px 2px}
+.hjem{display:flex;flex-direction:column;gap:16px;max-width:640px;margin:0 auto}
+.hjem-topp{display:flex;align-items:center;gap:14px;margin-top:4px}
+.hjem-logo{border-radius:18px;box-shadow:0 6px 22px rgba(0,0,0,.35);flex:none}
+.hjem-navn{margin:0;font-size:30px;letter-spacing:.3px}
+.hjem-under{color:var(--aksent);font-size:15px}
+.hjem-tekst{margin:0;color:var(--tekst2);font-size:15px;line-height:1.5}
+.hjem-baat{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--panel);border:1px solid var(--linje);border-radius:14px;padding:12px 14px}
+.hjem-velg{display:flex;flex-direction:column;gap:8px;width:100%;min-width:0}
+.hjem-baatnavn{display:flex;flex-direction:column;min-width:0}
+.hjem-baatnavn .liten{margin:0}
+.hjem-baatnavn b{font-size:18px}
+.hjem-baatnavn span:last-child{color:var(--tekst2);font-size:13.5px}
+.hjem-knapper{display:grid;grid-template-columns:1fr;gap:10px}
+@media(min-width:620px){.hjem-knapper{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.hjem-knapp{display:flex;align-items:center;gap:14px;width:100%;min-height:76px;padding:12px 14px;text-align:left;background:var(--panel2);border:1px solid var(--linje);border-radius:16px;color:var(--tekst);cursor:pointer;-webkit-tap-highlight-color:transparent}
+.hjem-knapp:hover,.hjem-knapp:focus-visible{border-color:var(--aksent)}
+.hjem-knapp:active{transform:scale(.985);background:var(--panel)}
+.hjem-ikon{flex:none;width:48px;height:48px;border-radius:13px;background:var(--panel);border:1px solid var(--linje);display:flex;align-items:center;justify-content:center;font-size:26px}
+.hjem-knapptekst{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
+.hjem-knapptekst b{font-size:17px}
+.hjem-knapptekst small{color:var(--tekst2);font-size:13px;line-height:1.35}
+.hjem-knapptekst em{font-style:normal;color:var(--aksent);font-size:12.5px}
+.hjem-pil{flex:none;font-size:26px;color:var(--tekst3)}
