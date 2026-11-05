@@ -290,3 +290,13 @@ iframe.kartflate{height:520px}
 .omraadevalg{display:flex;flex-wrap:wrap;gap:6px}
 .omraadevalg .chip{min-height:36px}
 .omraadevalg .chip.på{background:var(--aksent);color:#04121d;border-color:var(--aksent);font-weight:700}
+
+/* område på fangstfanene */
+.fangstomr { margin: 0 0 12px; }
+.fangstomr .omr-rad { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.fangstomr .omr-navn { font-weight: 700; }
+.fangstomr .omr-str { color: var(--tekst2, #AFC4D9); font-size: 13px; flex: 1 1 auto; min-width: 0; }
+.fangstomr .omr-valg { margin-top: 8px; display: flex; flex-direction: column; gap: 8px; }
+.fangstomr .omr-knapper { display: flex; flex-wrap: wrap; gap: 6px; }
+.fangstomr .omr-merk { margin-top: 6px; font-size: 12px; color: var(--tekst3, #7A8FA6); }
+.fangstkart { width: 100%; }
