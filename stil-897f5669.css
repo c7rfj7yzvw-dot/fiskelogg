@@ -189,3 +189,14 @@ iframe.kartflate{height:520px}
 .melding.farevarsel.orange{border-color:#F58C24;background:rgba(245,140,36,.12)}
 .melding.farevarsel.red{border-color:#E5484D;background:rgba(229,72,77,.12)}
 .melding.farevarsel div{margin-top:4px}
+.dogntabell tr.dogn{cursor:pointer}
+.dogntabell tr.dogn.apen td{background:rgba(92,200,255,.07)}
+.dogntabell .syms{font-size:17px;letter-spacing:-1px;white-space:nowrap}
+.dogntabell .pil-ned{color:var(--tekst3);margin-left:4px;font-size:11px}
+.dogntabell tr.blokkrad td{font-size:12.5px;background:rgba(15,39,64,.55);padding-top:4px;padding-bottom:4px}
+.dogntabell tr.blokkrad td.tid{font-weight:400;color:var(--tekst2);padding-left:16px}
+.dogntabell th,.dogntabell td{padding-left:4px;padding-right:4px}
+.dogntabell td.tid small{display:block;color:var(--tekst2);font-weight:400;font-size:11.5px}
+.dogntabell .syms{display:inline-grid;grid-template-columns:repeat(2,auto);gap:0 1px;font-size:15px;line-height:1.15;letter-spacing:0}
+.dogntabell td.temp2{white-space:nowrap}
+.dogntabell .skille{color:var(--tekst3);margin:0 2px}
