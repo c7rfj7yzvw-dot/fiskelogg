@@ -283,3 +283,10 @@ iframe.kartflate{height:520px}
 .hjem-knapptekst small{color:var(--tekst2);font-size:13px;line-height:1.35}
 .hjem-knapptekst em{font-style:normal;color:var(--aksent);font-size:12.5px}
 .hjem-pil{flex:none;font-size:26px;color:var(--tekst3)}
+/* valgt kartområde (Kart og AIS) */
+.omraadeboks{display:flex;flex-direction:column;gap:8px;background:var(--panel);border:1px solid var(--linje);border-left:4px solid #FFD166;border-radius:12px;padding:10px 12px}
+.omraadetopp{font-size:15px}.omraadetopp span{color:var(--tekst2)}
+.omraadetall{margin:0}
+.omraadevalg{display:flex;flex-wrap:wrap;gap:6px}
+.omraadevalg .chip{min-height:36px}
+.omraadevalg .chip.på{background:var(--aksent);color:#04121d;border-color:var(--aksent);font-weight:700}
