@@ -146,7 +146,9 @@ iframe.kartflate{height:520px}
 .oppdater-ikon{font-size:17px;line-height:1;display:inline-block}
 .laster-n .oppdater-ikon{animation:snurr 0.9s linear infinite}
 @keyframes snurr{to{transform:rotate(360deg)}}
-.oppdater-status{font-size:11px;color:var(--tekst3);margin-top:2px;white-space:nowrap}
+.oppdater-status{position:absolute;top:calc(100% + 6px);right:max(14px,env(safe-area-inset-right));max-width:min(calc(100vw - 28px),460px);box-sizing:border-box;white-space:normal;text-align:right;font-size:12px;line-height:1.4;color:var(--tekst2);background:var(--panel);border:1px solid var(--linje);border-radius:10px;padding:6px 10px;box-shadow:0 6px 18px rgba(0,0,0,.45);z-index:31}
+.oppdater-status.ok{color:var(--aksent)}
+.oppdater-knapp.ferdig{border-color:#4ADE80;box-shadow:0 0 0 3px rgba(74,222,128,.35)}
 .oppdater-status.feil{color:#FF8A8A}
 /* vær-fanen */
 .vaer-sok{display:flex;flex-direction:column;gap:8px}
