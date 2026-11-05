@@ -202,3 +202,57 @@ iframe.kartflate{height:520px}
 .dogntabell .syms{display:inline-grid;grid-template-columns:repeat(2,auto);gap:0 1px;font-size:15px;line-height:1.15;letter-spacing:0}
 .dogntabell td.temp2{white-space:nowrap}
 .dogntabell .skille{color:var(--tekst3);margin:0 2px}
+/* opphavsrett i bunnen (alle faner) */
+.opphav{margin-top:18px;padding-top:10px;border-top:1px solid var(--linje);font-size:11.5px;line-height:1.45;color:var(--tekst3);display:flex;flex-direction:column;gap:3px}
+.opphav b{color:var(--tekst2);font-weight:600}
+/* Klar for å gå ut? */
+.klar{display:flex;flex-direction:column;gap:10px;background:var(--panel);border:1px solid var(--linje);border-radius:14px;padding:12px}
+.klar-sted select{width:100%}
+.klar-dom{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;background:var(--panel2);border:1px solid var(--linje)}
+.klar-dom b{font-size:18px}
+.klar-grunn{font-size:13.5px;color:var(--tekst2)}
+.klar-lys{flex:none;width:30px;height:30px;border-radius:50%;background:#5b6b7b;box-shadow:0 0 0 3px rgba(255,255,255,.06)}
+.klar-dom.n0 .klar-lys{background:#22C55E;box-shadow:0 0 14px rgba(34,197,94,.55)}
+.klar-dom.n1 .klar-lys{background:#FACC15;box-shadow:0 0 14px rgba(250,204,21,.5)}
+.klar-dom.n2 .klar-lys{background:#EF4444;box-shadow:0 0 14px rgba(239,68,68,.55)}
+.klar-dom.n0{border-color:rgba(34,197,94,.55)}.klar-dom.n1{border-color:rgba(250,204,21,.55)}.klar-dom.n2{border-color:rgba(239,68,68,.6)}
+.klar-vindu{font-size:14px;color:var(--tekst)}
+.klar-rad{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:4px}
+.klar-blokk{position:relative;display:flex;flex-direction:column;align-items:center;gap:1px;padding:6px 1px;border-radius:9px;border:2px solid transparent;cursor:pointer;font-size:12px;color:#04121d;background:#5b6b7b;min-width:0}
+.klar-blokk.n0{background:#22C55E}.klar-blokk.n1{background:#FACC15}.klar-blokk.n2{background:#EF4444;color:#fff}
+.klar-blokk.lys{border-color:rgba(255,209,102,.95)}
+.klar-blokk.apen{outline:2px solid var(--tekst);outline-offset:1px}
+.klar-blokk .kl{font-weight:700;font-size:12.5px}
+.klar-blokk .v{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.klar-blokk .v small{font-weight:500;font-size:10px;margin-left:1px}
+.klar-blokk .b{font-size:10.5px;white-space:nowrap}
+.klar-blokk .f{position:absolute;top:-6px;right:-3px;font-size:11px}
+.klar-detalj{padding:8px 10px;border-radius:10px;background:var(--panel2);border-left:4px solid #5b6b7b;font-size:13.5px}
+.klar-detalj.n0{border-left-color:#22C55E}.klar-detalj.n1{border-left-color:#FACC15}.klar-detalj.n2{border-left-color:#EF4444}
+.klar-grenser{display:flex;flex-direction:column;gap:8px;padding:10px;border:1px dashed var(--linje);border-radius:12px}
+.klar-grenserad{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.klar-grense{display:flex;flex-direction:column;gap:3px;font-size:12px;color:var(--tekst3)}
+.klar-grense .felt{padding:8px 10px}
+.klar-forbehold{font-size:12.5px;color:var(--tekst2);font-style:italic}
+.advarsel-tekst{color:#FACC15}
+@media(max-width:420px){.klar-rad{grid-template-columns:repeat(5,minmax(0,1fr))}}
+/* fangstdagbok */
+.dagbok-skjema{display:flex;flex-direction:column;gap:10px;background:var(--panel);border:1px solid var(--linje);border-radius:14px;padding:12px}
+.skjema-rad3{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.skjema-rad3>*{min-width:0}
+.skjema-rad3>:first-child{grid-column:1/-1}
+.skjema-rad3 .felt{min-width:0;width:100%;max-width:100%;padding:10px 8px}
+.dagbok-skjema textarea.felt{resize:vertical;min-height:70px}
+.art-rad{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.art-rad .felt{flex:1 1 70px;min-width:0;width:auto}
+.art-rad select.felt{flex:1.3 1 90px}
+.dagbok-melding{position:sticky;top:calc(var(--topp) + 64px);z-index:20;background:var(--panel2);border:1px solid var(--aksent);color:var(--tekst);border-radius:12px;padding:10px 12px;margin:0 0 12px;font-size:14px}
+.dagbok-tall{display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media(min-width:620px){.dagbok-tall{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.turliste{display:flex;flex-direction:column;gap:10px}
+.tur{background:var(--panel);border:1px solid var(--linje);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:4px}
+.tur-topp{display:flex;justify-content:space-between;gap:8px}
+.tur-linje{font-size:14px;color:var(--tekst2)}
+.tur-notat{font-size:13.5px;color:var(--tekst2);white-space:pre-wrap;border-left:3px solid var(--linje);padding-left:8px}
+.tur-knapper{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.svak{color:var(--tekst3)}
