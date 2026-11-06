@@ -1,6 +1,6 @@
 // Fiskelogg service worker: app-skallet caches (cache-first), data hentes nett-først med cache som reserve (frakoblet).
 // Kartfliser fra Kartverket lagres i egen cache (cache-først) så kartet virker uten nett der du har vært.
-const VERSJON = "20261105230029";
+const VERSJON = "20261106051402";
 const SKALL = ["./", "index.html", "manifest.webmanifest", "js/app-KYIGQW35.js", "js/chunk-EK7ODJWE.js", "js/chunk-J7PYFWPC.js", "js/leaflet-src-XKIGVAXB.js", "js/main-U6RU5IRS.js", "stil-0a416b80.css", "ikoner/apple-touch-icon.png", "ikoner/ikon-180.png", "ikoner/ikon-192.png", "ikoner/ikon-512.png", "ikoner/ikon-maskable-512.png", "ikoner/ikon.svg", "ikoner/logo.svg", "data.json", "fartoy.json", "tillatelser.json", "leaflet.css", "kvote/indeks.json"];
 const CACHE = "fiskelogg-" + VERSJON;
 const DATA = "fiskedata-v1";
