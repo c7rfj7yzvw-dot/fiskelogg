@@ -1,7 +1,7 @@
 // Fiskelogg service worker: app-skallet caches (cache-first), data hentes nett-først med cache som reserve (frakoblet).
 // Kartfliser fra Kartverket lagres i egen cache (cache-først) så kartet virker uten nett der du har vært.
-const VERSJON = "20261106120419";
-const SKALL = ["./", "index.html", "manifest.webmanifest", "js/BrowserPerformanceMeasurement-G4GBUWWW.js", "js/app-IOATXYQP.js", "js/chunk-5RLYRHQL.js", "js/chunk-5TBO732O.js", "js/chunk-NP6ZTJIQ.js", "js/leaflet-src-R2SPRGJ5.js", "js/main-CCP2GYZQ.js", "stil-175de4bd.css", "ikoner/apple-touch-icon.png", "ikoner/ikon-180.png", "ikoner/ikon-192.png", "ikoner/ikon-512.png", "ikoner/ikon-maskable-512.png", "ikoner/ikon.svg", "ikoner/logo.svg", "data.json", "fartoy.json", "tillatelser.json", "leaflet.css", "kvote/indeks.json"];
+const VERSJON = "20261106131144";
+const SKALL = ["./", "index.html", "manifest.webmanifest", "js/BrowserPerformanceMeasurement-G4GBUWWW.js", "js/app-ZFG3YUU5.js", "js/chunk-4NQAU7TK.js", "js/chunk-5TBO732O.js", "js/chunk-ANPBKWZP.js", "js/chunk-DOIJXE4K.js", "js/chunk-DXVLNK5A.js", "js/chunk-JQGYOVCG.js", "js/chunk-NP6ZTJIQ.js", "js/chunk-STUEDWO7.js", "js/chunk-X4GI5QOH.js", "js/dagbok-LRKGM5EI.js", "js/dist-OLAGCSOF.js", "js/faner-PINUT7IW.js", "js/fangstomr-MXX6RBH5.js", "js/fiskinfo-6PVIBT63.js", "js/klar-OUUXXKDT.js", "js/leaflet-src-R2SPRGJ5.js", "js/main-6AORCQS4.js", "js/vaer-L3JPQLGY.js", "stil-2f89f443.css", "ikoner/apple-touch-icon.png", "ikoner/ikon-180.png", "ikoner/ikon-192.png", "ikoner/ikon-512.png", "ikoner/ikon-maskable-512.png", "ikoner/ikon.svg", "ikoner/logo.svg", "data.json", "fartoy.json", "tillatelser.json", "leaflet.css", "kvote/indeks.json"];
 const CACHE = "fiskelogg-" + VERSJON;
 const DATA = "fiskedata-v1";
 const FLISER = "kartfliser-v1";
@@ -31,15 +31,35 @@ self.addEventListener("fetch", (e) => {
   if (u.origin !== location.origin) return;
   const data = u.pathname.endsWith(".json");
   const side = e.request.mode === "navigate";
-  if (data || side) {
-    const nokkel = side ? "./" : u.pathname;
+  if (side) {
+    const nokkel = "./";
     e.respondWith(
-      // Siden hentes alltid forbi HTTP-cachen (ny versjon vises straks); data med ?t= hentes helt uten cache.
-      (side ? fetch(e.request.url, { cache: "no-cache", credentials: "same-origin" }) : fetch(e.request, u.searchParams.has("t") ? { cache: "no-store" } : undefined)).then((r) => {
-        if (r.ok) { const k = r.clone(); caches.open(side ? CACHE : DATA).then((c) => c.put(nokkel, k)); }
+      fetch(e.request.url, { cache: "no-cache", credentials: "same-origin" }).then((r) => {
+        if (r.ok) { const k = r.clone(); caches.open(CACHE).then((c) => c.put(nokkel, k)); }
         return r;
-      }).catch(() => caches.match(nokkel, { ignoreSearch: true }).then((r) => r || (side ? caches.match("index.html") : caches.match(e.request, { ignoreSearch: true }))).then((r) => r || Response.error()))
+      }).catch(() => caches.match(nokkel, { ignoreSearch: true }).then((r) => r || caches.match("index.html")).then((r) => r || Response.error()))
     );
+    return;
+  }
+  if (data) {
+    const nokkel = u.pathname;
+    // Oppdater-knappen (?t=) går nett-først. Ellers: vis cache med en gang og hent fersk i bakgrunnen.
+    if (u.searchParams.has("t")) {
+      e.respondWith(
+        fetch(e.request, { cache: "no-store" }).then((r) => {
+          if (r.ok) { const k = r.clone(); caches.open(DATA).then((c) => c.put(nokkel, k)); }
+          return r;
+        }).catch(() => caches.match(nokkel, { ignoreSearch: true }).then((r) => r || caches.match(e.request, { ignoreSearch: true })).then((r) => r || Response.error()))
+      );
+      return;
+    }
+    e.respondWith((async () => {
+      const c = await caches.open(DATA);
+      const cached = await c.match(nokkel, { ignoreSearch: true });
+      const nett = fetch(e.request).then((r) => { if (r.ok) c.put(nokkel, r.clone()); return r; });
+      if (cached) { nett.catch(() => {}); return cached; }
+      return nett.catch(() => Response.error());
+    })());
     return;
   }
   e.respondWith(caches.match(e.request, { ignoreSearch: true }).then((r) => r || fetch(e.request).then((n) => {
