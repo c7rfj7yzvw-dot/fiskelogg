@@ -11,6 +11,8 @@ Gratis app (PWA) for iPhone og PC med vær, tidevann, minstepris og leveranser f
 Appen virker uten nett med sist hentede data, og oppdateres daglig.
 
 ## Kilder
-Kun åpne data: Råfisklaget (leveranser), Fiskeridirektoratet (fartøy, tillatelser, J-meldinger og nyheter), MET (vær), Kartverket (tidevann), BarentsWatch (åpne data). Dekker bare mottakene rundt Sørøya/Hammerfest. Ingen private data, posisjoner eller nøkler ligger i appen. Meldingsfanen leser `meldinger.json`, bygget fra Fiskeridirektoratets RSS for j-meldinger og nyheter. Filteret «Relevant» er et utvalg, ikke juridisk veiledning.
+Kun åpne data: Råfisklaget (leveranser), Fiskeridirektoratet (fartøy, tillatelser, J-meldinger og nyheter), MET (vær), Kartverket (tidevann), BarentsWatch (åpne data). Dekker bare mottakene rundt Sørøya/Hammerfest. Ingen private data, posisjoner eller nøkler ligger i appen.
 
-Dette repoet inneholder bare den ferdigbygde siden.
+Meldingsfanen leser `meldinger.json`. Filen lages av den private kjøringen `lag_meldinger.py` fra Fiskeridirektoratets RSS og listesider. «Bare relevant for meg» er nøkkelord, ikke juridisk veiledning. Kildekoden ligger på byggemaskinen, ikke i denne publiserte mappen.
+
+Dette repoet inneholder bare den ferdigbygde siden. Kilde, bygg og private datafiler hører hjemme på byggemaskinen (`/workspace/fishing`), ikke her.

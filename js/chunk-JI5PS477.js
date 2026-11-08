@@ -2,5 +2,5 @@ var n=class a{constructor(e,r){this.correlationId=r,this.measureName=a.makeMeasu
 /*! Bundled license information:
 
 @azure/msal-browser/dist/telemetry/BrowserPerformanceMeasurement.mjs:
-  (*! @azure/msal-browser v3.28.1 2025-01-14 *)
+  (*! @azure/msal-browser v3.30.0 2025-08-05 *)
 */
