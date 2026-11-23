@@ -1,7 +1,7 @@
 // Fiskelogg service worker: app-skallet caches (cache-first), data hentes nett-først med cache som reserve (frakoblet).
 // Kartfliser fra Kartverket lagres i egen cache (cache-først) så kartet virker uten nett der du har vært.
-const VERSJON = "20261123062601";
-const SKALL = ["./", "index.html", "manifest.webmanifest", "js/BrowserPerformanceMeasurement-G4GBUWWW.js", "js/app-265FW2WC.js", "js/chunk-4OIR3FL4.js", "js/chunk-5TBO732O.js", "js/chunk-BWQUCSMI.js", "js/chunk-CCO7MHDN.js", "js/chunk-DOIJXE4K.js", "js/chunk-GD4A56OE.js", "js/chunk-I3IUXAOV.js", "js/chunk-K3T7LXDG.js", "js/chunk-NP6ZTJIQ.js", "js/chunk-ONYJYA3O.js", "js/chunk-STUEDWO7.js", "js/chunk-X4GI5QOH.js", "js/chunk-ZIMGBMD7.js", "js/dagbok-HOPE2GRY.js", "js/dist-OLAGCSOF.js", "js/faner-L47FHF54.js", "js/fangstomr-MXX6RBH5.js", "js/fiskekart-2POQTXCY.js", "js/fiskinfo-7IUYLJWU.js", "js/klar-XJAHNLOU.js", "js/leaflet-src-R2SPRGJ5.js", "js/main-EBTXSZHQ.js", "js/meldinger-64T47NY6.js", "js/turkart-VSZT64ZL.js", "js/vaer-GJJWM4BK.js", "js/vaerkart-MBFM5WB7.js", "js/vedlikehold-QLH3Y2BI.js", "stil-b6f34e6e.css", "ikoner/apple-touch-icon.png", "ikoner/ikon-180.png", "ikoner/ikon-192.png", "ikoner/ikon-512.png", "ikoner/ikon-maskable-512.png", "ikoner/ikon.svg", "ikoner/logo.svg", "data.json", "fartoy.json", "tillatelser.json", "leaflet.css", "kvote/indeks.json", "meldinger.json"];
+const VERSJON = "20261123224733";
+const SKALL = ["./", "index.html", "manifest.webmanifest", "js/BrowserPerformanceMeasurement-G4GBUWWW.js", "js/app-V7DNSWRO.js", "js/chunk-5TBO732O.js", "js/chunk-CCO7MHDN.js", "js/chunk-DOIJXE4K.js", "js/chunk-FQ5UHEBI.js", "js/chunk-GD4A56OE.js", "js/chunk-NP6ZTJIQ.js", "js/chunk-OYUIUNTR.js", "js/chunk-R52GOSKK.js", "js/chunk-STUEDWO7.js", "js/chunk-X2H3JOCN.js", "js/chunk-X4GI5QOH.js", "js/chunk-YBN2ANKD.js", "js/chunk-YTAQHLG4.js", "js/chunk-ZIMGBMD7.js", "js/dagbok-DLOYETJJ.js", "js/dist-OLAGCSOF.js", "js/faner-PDSMTKTI.js", "js/fangstomr-MXX6RBH5.js", "js/fiskekart-SGV7MGX4.js", "js/fiskinfo-7IUYLJWU.js", "js/klar-FQIHB24N.js", "js/leaflet-src-R2SPRGJ5.js", "js/main-LUVWOLMQ.js", "js/meldinger-YAQWWI2L.js", "js/turkart-HMBUGTMQ.js", "js/vaer-WYKBTBTZ.js", "js/vaerkart-BKJQ4LFX.js", "js/vedlikehold-TCFBBJQ7.js", "stil-a61f94d2.css", "ikoner/apple-touch-icon.png", "ikoner/ikon-180.png", "ikoner/ikon-192.png", "ikoner/ikon-512.png", "ikoner/ikon-maskable-512.png", "ikoner/ikon.svg", "ikoner/logo.svg", "data.json", "fartoy.json", "tillatelser.json", "leaflet.css", "kvote/indeks.json", "meldinger.json"];
 const CACHE = "fiskelogg-" + VERSJON;
 const DATA = "fiskedata-v1";
 const FLISER = "kartfliser-v1";
@@ -33,12 +33,15 @@ self.addEventListener("fetch", (e) => {
   const side = e.request.mode === "navigate";
   if (side) {
     const nokkel = "./";
-    e.respondWith(
-      fetch(e.request.url, { cache: "no-cache", credentials: "same-origin" }).then((r) => {
-        if (r.ok) { const k = r.clone(); caches.open(CACHE).then((c) => c.put(nokkel, k)); }
-        return r;
-      }).catch(() => caches.match(nokkel, { ignoreSearch: true }).then((r) => r || caches.match("index.html")).then((r) => r || Response.error()))
-    );
+    // Nett først, men på sjøen med svak dekning skal appen ikke henge: etter 4 s vises lagret versjon (nettet lagres likevel når det kommer).
+    const fraCache = () => caches.match(nokkel, { ignoreSearch: true }).then((r) => r || caches.match("index.html"));
+    const nett = fetch(e.request.url, { cache: "no-cache", credentials: "same-origin" }).then((r) => {
+      if (r.ok) { const k = r.clone(); caches.open(CACHE).then((c) => c.put(nokkel, k)); }
+      return r;
+    });
+    const treg = new Promise((ok) => setTimeout(ok, 4000)).then(fraCache).then((r) => r || nett);
+    e.respondWith(Promise.race([nett, treg]).catch(() => fraCache()).then((r) => r || Response.error()));
+    e.waitUntil(nett.catch(() => {}));
     return;
   }
   if (data) {
