@@ -1,6 +1,6 @@
 // Fiskelogg service worker: app-skallet caches (cache-first), data hentes nett-først med cache som reserve (frakoblet).
 // Kartfliser fra Kartverket lagres i egen cache (cache-først) så kartet virker uten nett der du har vært.
-const VERSJON = "20261122061909";
+const VERSJON = "20261123062601";
 const SKALL = ["./", "index.html", "manifest.webmanifest", "js/BrowserPerformanceMeasurement-G4GBUWWW.js", "js/app-265FW2WC.js", "js/chunk-4OIR3FL4.js", "js/chunk-5TBO732O.js", "js/chunk-BWQUCSMI.js", "js/chunk-CCO7MHDN.js", "js/chunk-DOIJXE4K.js", "js/chunk-GD4A56OE.js", "js/chunk-I3IUXAOV.js", "js/chunk-K3T7LXDG.js", "js/chunk-NP6ZTJIQ.js", "js/chunk-ONYJYA3O.js", "js/chunk-STUEDWO7.js", "js/chunk-X4GI5QOH.js", "js/chunk-ZIMGBMD7.js", "js/dagbok-HOPE2GRY.js", "js/dist-OLAGCSOF.js", "js/faner-L47FHF54.js", "js/fangstomr-MXX6RBH5.js", "js/fiskekart-2POQTXCY.js", "js/fiskinfo-7IUYLJWU.js", "js/klar-XJAHNLOU.js", "js/leaflet-src-R2SPRGJ5.js", "js/main-EBTXSZHQ.js", "js/meldinger-64T47NY6.js", "js/turkart-VSZT64ZL.js", "js/vaer-GJJWM4BK.js", "js/vaerkart-MBFM5WB7.js", "js/vedlikehold-QLH3Y2BI.js", "stil-b6f34e6e.css", "ikoner/apple-touch-icon.png", "ikoner/ikon-180.png", "ikoner/ikon-192.png", "ikoner/ikon-512.png", "ikoner/ikon-maskable-512.png", "ikoner/ikon.svg", "ikoner/logo.svg", "data.json", "fartoy.json", "tillatelser.json", "leaflet.css", "kvote/indeks.json", "meldinger.json"];
 const CACHE = "fiskelogg-" + VERSJON;
 const DATA = "fiskedata-v1";
